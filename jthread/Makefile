@@ -1,10 +1,3 @@
-#
-# Copyright (C) 2011-2012 OpenWrt.org
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
-
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=jthread
@@ -23,35 +16,35 @@ PKG_LICENSE:=LGPL-2.1+
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
-define Package/jxlibjthread
+define Package/jx_jthread
   SECTION:=libs
   CATEGORY:=Libraries
-  TITLE:=jxlibjthread
+  TITLE:=jthread(version 1.3.1)
   DEPENDS:=+libstdcpp
 endef
 
-define Package/jxlibjthread/description
-  defined by jx
+define Package/jx_jthread/description
+
 endef
 
 
 define Build/InstallDev
-        $(INSTALL_DIR) $(1)/usr/include
-        $(CP) $(PKG_INSTALL_DIR)/usr/include/jthread $(1)/usr/include/
-        $(INSTALL_DIR) $(1)/usr/lib
-        $(CP) $(PKG_INSTALL_DIR)/usr/lib32/libjthread.{a,so*} $(1)/usr/lib/
-        $(INSTALL_DIR) $(1)/usr/lib/pkgconfig
-        $(CP) $(PKG_INSTALL_DIR)/usr/lib32/pkgconfig/jthread.pc $(1)/usr/lib/pkgconfig/
+	$(INSTALL_DIR) $(1)/usr/include
+	$(CP) $(PKG_INSTALL_DIR)/usr/include/jthread $(1)/usr/include/
+	$(INSTALL_DIR) $(1)/usr/lib
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib32/libjthread.{a,so*} $(1)/usr/lib/
+	$(INSTALL_DIR) $(1)/usr/lib/pkgconfig
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib32/pkgconfig/jthread.pc $(1)/usr/lib/pkgconfig/
 
 
 endef
 
-define Package/jxlibjthread/install
-        $(INSTALL_DIR) $(1)/usr/lib
-        $(CP) $(PKG_INSTALL_DIR)/usr/lib32/libjthread.so* $(1)/usr/lib/
-
-        $(CP) $(PKG_INSTALL_DIR)/usr/include/jthread $(TOOLCHAIN_DIR)/include/
-        $(CP) $(PKG_INSTALL_DIR)/usr/lib32/libjthread.{a,so*} $(TOOLCHAIN_DIR)/lib/
+define Package/jx_jthread/install
+	$(INSTALL_DIR) $(1)/usr/lib
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib32/libjthread.so* $(1)/usr/lib/
+	$(CP) $(PKG_INSTALL_DIR)/usr/include/jthread $(TOOLCHAIN_DIR)/include/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib32/libjthread.{a,so*} $(TOOLCHAIN_DIR)/lib/
 endef
 
-$(eval $(call BuildPackage,jxlibjthread))
+$(eval $(call BuildPackage,jx_jthread))
+
