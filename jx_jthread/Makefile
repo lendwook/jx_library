@@ -19,7 +19,7 @@ include $(INCLUDE_DIR)/cmake.mk
 define Package/jx_jthread
   SECTION:=libs
   CATEGORY:=Libraries
-  TITLE:=jthread(version 1.3.1)
+  TITLE:= jx jthread(version 1.3.1)
   DEPENDS:=+libstdcpp
 endef
 
