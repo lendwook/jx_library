@@ -30,6 +30,9 @@ endef
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/include
+
+	chmod 0755 $(PKG_INSTALL_DIR)/usr/lib32/libjthread.{a,so.*}
+
 	$(CP) $(PKG_INSTALL_DIR)/usr/include/jthread $(1)/usr/include/
 	$(INSTALL_DIR) $(1)/usr/lib
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib32/libjthread.{a,so*} $(1)/usr/lib/
@@ -41,6 +44,9 @@ endef
 
 define Package/jx_jthread/install
 	$(INSTALL_DIR) $(1)/usr/lib
+
+	chmod 0755 $(PKG_INSTALL_DIR)/usr/lib32/libjthread.{a,so.*}
+
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib32/libjthread.so* $(1)/usr/lib/
 	$(CP) $(PKG_INSTALL_DIR)/usr/include/jthread $(TOOLCHAIN_DIR)/include/
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib32/libjthread.{a,so*} $(TOOLCHAIN_DIR)/lib/
