@@ -36,6 +36,9 @@ CMAKE_OPTIONS+= \
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/include
+	
+	chmod 0755 $(PKG_INSTALL_DIR)/usr/lib/libjsoncpp.{a,so.*}
+
 	$(CP) $(PKG_INSTALL_DIR)/usr/include/json $(1)/usr/include/
 	$(INSTALL_DIR) $(1)/usr/lib
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libjsoncpp.{a,so*} $(1)/usr/lib/
@@ -46,6 +49,9 @@ endef
 
 define Package/jx_jsoncpp/install
 	$(INSTALL_DIR) $(1)/usr/lib
+
+	chmod 0755 $(PKG_INSTALL_DIR)/usr/lib/libjsoncpp.{a,so.*}
+
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libjsoncpp.so* $(1)/usr/lib/
 
 	$(CP) $(PKG_INSTALL_DIR)/usr/include/json $(TOOLCHAIN_DIR)/include/
