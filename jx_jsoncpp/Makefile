@@ -1,4 +1,10 @@
 include $(TOPDIR)/rules.mk
+
+PKG_NAME:=jxlibjsoncpp
+PKG_VERSION:=1.8.0
+PKG_RELEASE:=1
+
+
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
