@@ -19,6 +19,7 @@ include $(INCLUDE_DIR)/cmake.mk
 define Package/jx_jrtp
   SECTION:=libs
   CATEGORY:=Libraries
+  DEPENDS:=+jx_jthread
   TITLE:=jx jrtp(version 3.10.0)
 endef
 
