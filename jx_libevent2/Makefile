@@ -1,10 +1,3 @@
-#
-# Copyright (C) 2011-2015 OpenWrt.org
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
-
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libevent2
@@ -26,14 +19,14 @@ PKG_BUILD_PARALLEL:=1
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/libevent2/Default
+define Package/jx_libevent2/Default
   SECTION:=libs
   CATEGORY:=Libraries
   TITLE:=Event notification
   URL:=https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/
 endef
 
-define Package/libevent2/Default/description
+define Package/jx_libevent2/Default/description
 	The libevent API provides a mechanism to execute a callback function
 	when a specific event occurs on a file descriptor or after a timeout
 	has been reached. Furthermore, libevent also support callbacks due
@@ -45,63 +38,63 @@ define Package/libevent2/Default/description
 	the event loop.
 endef
 
-define Package/libevent2
-  $(call Package/libevent2/Default)
+define Package/jx_libevent2
+  $(call Package/jx_libevent2/Default)
   TITLE+= library (changed by jx version 2.1)
 endef
 
-define Package/libevent2/description
-	$(call Package/libevent2/Default/description)
+define Package/jx_libevent2/description
+	$(call Package/jx_libevent2/Default/description)
 
 	This package contains the libevent shared library historically
 	containing both the core & extra libraries.
 endef
 
-define Package/libevent2-core
-  $(call Package/libevent2/Default)
+define Package/jx_libevent2-core
+  $(call Package/jx_libevent2/Default)
   TITLE+= core library (changed by jx version 2.1)
 endef
 
-define Package/libevent2-core/description
-	$(call Package/libevent2/Default/description)
+define Package/jx_libevent2-core/description
+	$(call Package/jx_libevent2/Default/description)
 
 	This package contains the libevent core shared library for the event,
 	buffer & utility functions.
 endef
 
-define Package/libevent2-extra
-  $(call Package/libevent2/Default)
+define Package/jx_libevent2-extra
+  $(call Package/jx_libevent2/Default)
   TITLE+= extra library (changed by jx version 2.1)
 endef
 
-define Package/libevent2-extra/description
-	$(call Package/libevent2/Default/description)
+define Package/jx_libevent2-extra/description
+	$(call Package/jx_libevent2/Default/description)
 
 	This package contains the libevent extra shared library for specific
 	protocols including HTTP, DNS & RPC.
 endef
 
-define Package/libevent2-openssl
-  $(call Package/libevent2/Default)
+define Package/jx_libevent2-openssl
+  $(call Package/jx_libevent2/Default)
   TITLE+= OpenSSL library (changed by jx version 2.1)
   DEPENDS+=+libopenssl
 endef
 
-define Package/libevent2-openssl/description
-	$(call Package/libevent2/Default/description)
+define Package/jx_libevent2-openssl/description
+	$(call Package/jx_libevent2/Default/description)
 
 	This package contains the libevent OpenSSL shared library for encrypted
 	bufferevents.
 endef
 
-define Package/libevent2-pthreads
-  $(call Package/libevent2/Default)
+define Package/jx_libevent2-pthreads
+  $(call Package/jx_libevent2/Default)
   TITLE+= Pthreads library (changed by jx version 2.1)
   DEPENDS+=+libpthread
 endef
 
-define Package/libevent2-pthreads/description
-	$(call Package/libevent2/Default/description)
+define Package/jx_libevent2-pthreads/description
+	$(call Package/jx_libevent2/Default/description)
 
 	This package contains the libevent Pthreads shared library for
 	threading & locking.
@@ -128,7 +121,7 @@ define Build/InstallDev
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/pkgconfig/libevent*.pc $(1)/usr/lib/pkgconfig/
 endef
 
-define Package/libevent2/install
+define Package/jx_libevent2/install
 	$(INSTALL_DIR) $(1)/usr/lib
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libevent-2.1.so* $(1)/usr/lib/
 
@@ -138,28 +131,28 @@ define Package/libevent2/install
 
 endef
 
-define Package/libevent2-core/install
+define Package/jx_libevent2-core/install
 	$(INSTALL_DIR) $(1)/usr/lib
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libevent_core-2.1.so* $(1)/usr/lib/
 endef
 
-define Package/libevent2-extra/install
+define Package/jx_libevent2-extra/install
 	$(INSTALL_DIR) $(1)/usr/lib
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libevent_extra-2.1.so* $(1)/usr/lib/
 endef
 
-define Package/libevent2-openssl/install
+define Package/jx_libevent2-openssl/install
 	$(INSTALL_DIR) $(1)/usr/lib
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libevent_openssl-2.1.so* $(1)/usr/lib/
 endef
 
-define Package/libevent2-pthreads/install
+define Package/jx_libevent2-pthreads/install
 	$(INSTALL_DIR) $(1)/usr/lib
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libevent_pthreads-2.1.so* $(1)/usr/lib/
 endef
 
-$(eval $(call BuildPackage,libevent2))
-$(eval $(call BuildPackage,libevent2-core))
-$(eval $(call BuildPackage,libevent2-extra))
-$(eval $(call BuildPackage,libevent2-openssl))
-$(eval $(call BuildPackage,libevent2-pthreads))
+$(eval $(call BuildPackage,jx_libevent2))
+$(eval $(call BuildPackage,jx_libevent2-core))
+$(eval $(call BuildPackage,jx_libevent2-extra))
+$(eval $(call BuildPackage,jx_libevent2-openssl))
+$(eval $(call BuildPackage,jx_libevent2-pthreads))
