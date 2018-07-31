@@ -1,0 +1,6 @@
+---工具链导入
+1] libasound
+path : package/feeds/packages/alsa-lib/Makefile
+
+2] libcurl
+path : package/network/utils/curl/Makefile

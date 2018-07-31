@@ -31,6 +31,9 @@ define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/include
 	$(CP) $(PKG_INSTALL_DIR)/usr/include/jrtplib3 $(1)/usr/include/
 	$(INSTALL_DIR) $(1)/usr/lib
+	
+	chmod 0755 $(PKG_INSTALL_DIR)/usr/lib32/libjrtp.{a,so.*}
+
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib32/libjrtp.{a,so*} $(1)/usr/lib/
 	$(INSTALL_DIR) $(1)/usr/lib/pkgconfig
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib32/pkgconfig/jrtplib.pc $(1)/usr/lib/pkgconfig/
@@ -38,6 +41,9 @@ endef
 
 define Package/jx_jrtp/install
 	$(INSTALL_DIR) $(1)/usr/lib
+
+	chmod 0755 $(PKG_INSTALL_DIR)/usr/lib32/libjrtp.{a,so.*}
+
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib32/libjrtp.so* $(1)/usr/lib/
 
 	$(CP) $(PKG_INSTALL_DIR)/usr/include/jrtplib3 $(TOOLCHAIN_DIR)/include/

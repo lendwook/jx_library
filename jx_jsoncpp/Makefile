@@ -12,7 +12,7 @@ define Package/jx_jsoncpp
   SECTION:=libs
   CATEGORY:=Libraries
   TITLE:=jx jsoncpp(version 1.8.0)
-  DEPENDS:=+libstdcpp +alsa-lib
+  DEPENDS:=+libstdcpp
 endef
 
 define Package/jx_jsoncpp/description
